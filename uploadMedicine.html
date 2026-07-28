@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Add Medicine — MediXon</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body style="background:var(--white2);">
+<header>
+  <a href="dashboard.html" class="logo"><span class="logo-icon">⚕️</span> MediXon</a>
+  <nav>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="uploadEquipment.html">+ Equipment</a>
+    <a href="uploadMedicine.html" class="active">+ Medicine</a>
+    <div class="nav-sep"></div>
+    <a href="browse.html">Equipment</a>
+    <a href="browseMedicine.html">Medicine</a>
+    <a href="myRequests.html">My Requests</a>
+    <a href="ownerRequests.html">Received</a>
+    <a href="chat.html">Chat</a>
+    <a href="LogoutServlet.php" class="nav-logout">Logout</a>
+  </nav>
+</header>
+<div class="upload-form form-med">
+  <h1>💊 Add Medicine</h1>
+  <div class="med-banner" style="margin-bottom:1.25rem;">
+    <div class="med-banner-icon">⚠️</div>
+    <div class="med-banner-text"><h3>Important</h3><p>Only share medicines that are sealed or properly stored. Always include the expiry date. Never share prescription-only medicines without authorization.</p></div>
+  </div>
+  <div class="form-card">
+    <form action="UploadMedicineServlet.php" method="post" enctype="multipart/form-data">
+      <div class="form-grid">
+        <div class="form-group"><label>Medicine Name *</label><input type="text" name="name" placeholder="e.g. Napa 500mg" required></div>
+        <div class="form-group"><label>Generic Name</label><input type="text" name="generic_name" placeholder="e.g. Paracetamol"></div>
+        <div class="form-group">
+          <label>Category *</label>
+          <select name="category" required>
+            <option value="">Select category</option>
+            <option>Antibiotic</option><option>Painkiller</option><option>Vitamin &amp; Supplement</option>
+            <option>Diabetes</option><option>Cardiac</option><option>Respiratory</option><option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Dosage Form *</label>
+          <select name="dosage_form" required>
+            <option value="Tablet">Tablet</option><option value="Capsule">Capsule</option>
+            <option value="Syrup">Syrup</option><option value="Injection">Injection</option>
+            <option value="Cream">Cream</option><option value="Drops">Drops</option>
+            <option value="Inhaler">Inhaler</option><option value="Powder">Powder</option><option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Strength / Dose</label><input type="text" name="strength" placeholder="e.g. 500mg, 10ml"></div>
+        <div class="form-group"><label>Manufacturer / Brand</label><input type="text" name="manufacturer" placeholder="e.g. Square, Beximco"></div>
+        <div class="form-group"><label>Quantity *</label><input type="number" name="quantity" placeholder="e.g. 10" min="1" value="1" required></div>
+        <div class="form-group"><label>Unit</label><input type="text" name="unit" placeholder="pcs / strips / ml" value="pcs"></div>
+        <div class="form-group">
+          <label>Condition *</label>
+          <select name="condition_type" required>
+            <option value="Sealed">Sealed (Unopened)</option>
+            <option value="Opened">Opened (Partially used)</option>
+            <option value="Partial">Partial pack</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Mode *</label>
+          <select name="mode" id="medModeSelect" required onchange="toggleMedPrice()">
+            <option value="Donate">Donate (Free)</option>
+            <option value="Swap">Swap</option>
+            <option value="Low Price Sale">Low Price Sale</option>
+          </select>
+        </div>
+        <div class="form-group" id="medPriceGroup" style="display:none;"><label>Price (৳)</label><input type="number" name="price" placeholder="0.00" step="0.01" min="0"></div>
+        <div class="form-group"><label>Expiry Date *</label><input type="date" name="expiry_date" required></div>
+        <div class="form-group"><label>Location *</label><input type="text" name="location" placeholder="City, Area" required></div>
+        <div class="form-group full"><label>Description</label><textarea name="description" placeholder="Additional details — storage condition, reason for sharing, any precautions..."></textarea></div>
+        <div class="form-group full"><label>Photo (optional)</label><input type="file" name="photo" accept="image/*" onchange="previewImg(this,'medPrev')">
+          <img id="medPrev" style="display:none;margin-top:.6rem;max-height:160px;border-radius:8px;object-fit:cover;"></div>
+      </div>
+      <button class="btn btn-med btn-full" type="submit" style="margin-top:1.25rem;">Upload Medicine</button>
+    </form>
+  </div>
+</div>
+<footer>© 2026 MediXon — Medical Equipment & Medicine Sharing Platform</footer>
+<script>
+function toggleMedPrice(){
+  document.getElementById('medPriceGroup').style.display=document.getElementById('medModeSelect').value==='Low Price Sale'?'':'none';
+}
+function previewImg(input,id){
+  const el=document.getElementById(id);
+  if(input.files&&input.files[0]){const r=new FileReader();r.onload=e=>{el.src=e.target.result;el.style.display='block';};r.readAsDataURL(input.files[0]);}
+}
+</script>
+</body>
+</html>
