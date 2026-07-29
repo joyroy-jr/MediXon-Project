@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Browse Equipment — MediXon</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body style="background:var(--white2);">
+<header>
+  <a href="dashboard.html" class="logo"><span class="logo-icon">⚕️</span> MediXon</a>
+  <nav>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="uploadEquipment.html">+ Equipment</a>
+    <a href="uploadMedicine.html">+ Medicine</a>
+    <div class="nav-sep"></div>
+    <a href="browse.html" class="active">Equipment</a>
+    <a href="browseMedicine.html">Medicine</a>
+    <div class="nav-sep"></div>
+    <a href="myRequests.html">My Requests</a>
+    <a href="ownerRequests.html">Received</a>
+    <a href="chat.html">Chat</a>
+    <a href="profile.html">Profile</a>
+    <a href="LogoutServlet.php" class="nav-logout">Logout</a>
+  </nav>
+</header>
+<div class="page-wrap">
+  <h1 class="page-title">🩺 Browse Equipment</h1>
+  <div class="filters-row">
+    <input type="text" id="browseSearch" placeholder="Search equipment by name or brand...">
+    <select id="browseCategory">
+      <option value="">All Categories</option>
+      <option>Mobility Aids</option><option>Hospital Beds</option><option>Respiratory</option>
+      <option>Monitoring</option><option>Rehabilitation</option><option>Daily Living Aids</option><option>Other</option>
+    </select>
+    <select id="browseCondition"><option value="">All Conditions</option><option value="New">New</option><option value="Used">Used</option></select>
+    <select id="browseMode"><option value="">All Modes</option><option value="Donate">Donate</option><option value="Swap">Swap</option><option value="Rent">Rent</option><option value="Low Price Sale">Low Price Sale</option></select>
+  </div>
+  <div class="equipment-list" id="browseList"><div class="empty-state"><p>Loading equipment...</p></div></div>
+</div>
+<footer>© 2026 MediXon — Medical Equipment & Medicine Sharing Platform</footer>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Profile — MediXon</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body style="background:var(--white2);">
+<header>
+  <a href="dashboard.html" class="logo"><span class="logo-icon">⚕️</span> MediXon</a>
+  <nav>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="uploadEquipment.html">+ Equipment</a><a href="uploadMedicine.html">+ Medicine</a>
+    <div class="nav-sep"></div>
+    <a href="browse.html">Equipment</a><a href="browseMedicine.html">Medicine</a>
+    <div class="nav-sep"></div>
+    <a href="myRequests.html">My Requests</a><a href="ownerRequests.html">Received</a>
+    <a href="chat.html">Chat</a>
+    <a href="profile.html" class="active">Profile</a>
+    <a href="LogoutServlet.php" class="nav-logout">Logout</a>
+  </nav>
+</header>
+<div class="profile-section">
+  <h1>Your Profile</h1>
+  <div class="form-card">
+    <div class="profile-header">
+      <div class="profile-avatar" id="avatarEl"><span id="avatarInitial">?</span></div>
+      <div>
+        <div style="font-size:1.25rem;font-weight:800;color:var(--text-d);" id="profileNameDisplay">Loading...</div>
+        <div style="color:var(--text-d2);font-size:13.5px;" id="profileEmailDisplay"></div>
+        <div style="font-size:12px;color:var(--text-d3);margin-top:4px;">Upload a profile picture below</div>
+      </div>
+    </div>
+    <hr class="section-divider">
+    <form action="updateProfile.php" method="post" enctype="multipart/form-data">
+      <div class="form-grid">
+        <div class="form-group"><label>Full Name *</label><input type="text" name="name" id="name" required placeholder="Your full name"></div>
+        <div class="form-group"><label>Phone</label><input type="text" name="phone" id="phone" placeholder="+880 1xxx xxxxxx"></div>
+        <div class="form-group full"><label>Location</label><input type="text" name="location" id="location" placeholder="City, District"></div>
+        <div class="form-group full">
+          <label>Profile Picture — Upload File</label>
+          <input type="file" name="profile_pic_file" id="profilePicFile" accept="image/*" onchange="previewPic(this)">
+        </div>
+        <div class="form-group full">
+          <label>Or enter image URL</label>
+          <input type="text" name="profile_pic" id="profile_pic" placeholder="https://...">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" style="margin-top:1.25rem;min-width:180px;">Save Changes</button>
+    </form>
+  </div>
+</div>
+<footer>© 2026 MediXon — Medical Equipment & Medicine Sharing Platform</footer>
+<script>
+function previewPic(input){
+  if(input.files&&input.files[0]){
+    const r=new FileReader();
+    r.onload=e=>{document.getElementById('avatarEl').innerHTML='<img src="'+e.target.result+'" alt="preview">';};
+    r.readAsDataURL(input.files[0]);
+  }
+}
+fetch('profileData.php').then(r=>r.json()).then(u=>{
+  document.getElementById('name').value=u.name||'';
+  document.getElementById('phone').value=u.phone||'';
+  document.getElementById('location').value=u.location||'';
+  document.getElementById('profile_pic').value=u.profile_pic||'';
+  document.getElementById('profileNameDisplay').textContent=u.name||'User';
+  document.getElementById('profileEmailDisplay').textContent=u.email||'';
+  const av=document.getElementById('avatarEl');
+  if(u.profile_pic){av.innerHTML='<img src="'+u.profile_pic+'" alt="avatar">';}
+  else{document.getElementById('avatarInitial').textContent=u.name?u.name.charAt(0).toUpperCase():'?';}
+}).catch(console.error);
+</script>
+</body>
+</html>
