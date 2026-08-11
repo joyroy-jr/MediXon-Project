@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Browse Medicine — MediXon</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body style="background:var(--white2);">
+<header>
+  <a href="dashboard.html" class="logo"><span class="logo-icon">⚕️</span> MediXon</a>
+  <nav>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="uploadEquipment.html">+ Equipment</a>
+    <a href="uploadMedicine.html">+ Medicine</a>
+    <div class="nav-sep"></div>
+    <a href="browse.html">Equipment</a>
+    <a href="browseMedicine.html" class="active">Medicine</a>
+    <div class="nav-sep"></div>
+    <a href="myRequests.html">My Requests</a>
+    <a href="ownerRequests.html">Received</a>
+    <a href="chat.html">Chat</a>
+    <a href="profile.html">Profile</a>
+    <a href="LogoutServlet.php" class="nav-logout">Logout</a>
+  </nav>
+</header>
+<div class="page-wrap">
+  <h1 class="page-title">💊 Browse Medicine</h1>
+  <div class="med-banner">
+    <div class="med-banner-icon">💊</div>
+    <div class="med-banner-text">
+      <h3>Medicine Sharing Community</h3>
+      <p>Browse sealed and unopened medicine packs shared by trusted community members. Always check expiry before requesting.</p>
+    </div>
+  </div>
+  <div class="filters-row">
+    <input type="text" id="medSearch" placeholder="Search by medicine name, generic name or brand...">
+    <select id="medCategory">
+      <option value="">All Categories</option>
+      <option>Antibiotic</option><option>Painkiller</option><option>Vitamin &amp; Supplement</option>
+      <option>Diabetes</option><option>Cardiac</option><option>Respiratory</option><option>Other</option>
+    </select>
+    <select id="medForm">
+      <option value="">All Forms</option>
+      <option>Tablet</option><option>Capsule</option><option>Syrup</option><option>Injection</option>
+      <option>Cream</option><option>Drops</option><option>Inhaler</option><option>Powder</option><option>Other</option>
+    </select>
+    <select id="medMode"><option value="">All Modes</option><option value="Donate">Donate</option><option value="Swap">Swap</option><option value="Low Price Sale">Low Price Sale</option></select>
+  </div>
+  <div class="equipment-list" id="medicineList"><div class="empty-state"><p>Loading medicines...</p></div></div>
+</div>
+<footer>© 2026 MediXon — Medical Equipment & Medicine Sharing Platform</footer>
+<script src="script.js"></script>
+</body>
+</html>

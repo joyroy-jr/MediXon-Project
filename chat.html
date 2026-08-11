@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat — MediCycle</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+</head>
+<body>
+<header>
+  <a href="dashboard.html" class="logo">MediCycle</a>
+  <nav>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="browse.html">Browse</a>
+    <a href="myRequests.html">My Requests</a>
+    <a href="ownerRequests.html">Received</a>
+    <a href="chat.html" class="active">Chat</a>
+    <a href="LogoutServlet.php" class="nav-logout">Logout</a>
+  </nav>
+</header>
+
+<div class="page-wrap" data-aos="fade-up">
+  <h1 class="page-title">Messages</h1>
+
+  <div class="chat-container">
+    <div class="chat-users" id="chatUsers">
+      <div class="chat-users-header">Your Chats</div>
+    </div>
+
+    <div class="chat-window">
+      <div class="chat-header" id="chatHeader">
+        <span style="width:28px;height:28px;background:var(--surface2);border-radius:50%;display:inline-block;"></span>
+        Select a conversation
+      </div>
+
+      <div class="messages-area" id="messagesArea">
+        <div style="text-align:center;color:var(--text3);margin:auto;font-size:14px;">
+          Select a chat from the left to start messaging
+        </div>
+      </div>
+
+      <div class="message-input">
+        <input type="file" id="fileInput" accept="image/*,.pdf,.doc,.docx">
+        <button id="attachBtn" title="Attach file">📎</button>
+        <input type="text" id="msgBox" placeholder="Type a message..." autocomplete="off">
+        <button id="sendBtn">Send</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>&copy; 2026 MediCycle — Medical Equipment Sharing Platform</footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="chat.js"></script>
+<script>AOS.init({ duration: 600, once: true });</script>
+</body>
+</html>
