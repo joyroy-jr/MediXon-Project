@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Sign Up — MediXon</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <a href="index.html" class="logo"><span class="logo-icon">⚕️</span> MediXon</a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="feedback.html">Feedback</a>
+    <a href="login.html">Login</a>
+    <a href="signup.html" class="nav-cta">Sign Up</a></nav>
+  </nav>
+</header>
+<section class="auth-section">
+  <div class="auth-box" style="max-width:460px;">
+    <a href="index.html" class="logo" style="font-size:17px;display:inline-block;margin-bottom:.6rem;"><span class="logo-icon">⚕️</span> MediXon</a>
+    <h2>Create account</h2>
+    <p class="auth-subtitle">Join thousands helping their community</p>
+    <form id="signupForm" action="signup.php" method="post" style="margin-top:1.1rem;">
+      <div class="form-grid" style="gap:.75rem;">
+        <div class="form-group"><label>Full Name</label><input type="text" name="name" placeholder="Your full name" required></div>
+        <div class="form-group"><label>Phone</label><input type="text" name="phone" placeholder="+880 1......." required></div>
+        <div class="form-group full"><label>Email</label><input type="email" name="email" placeholder="your@email.com" required></div>
+        <div class="form-group full"><label>Location</label><input type="text" name="location" placeholder="City, District"></div>
+        <div class="form-group"><label>Password</label><input type="password" id="pw1" name="password" placeholder="Min 6 chars" required></div>
+        <div class="form-group"><label>Confirm Password</label><input type="password" id="pw2" placeholder="Repeat password" required></div>
+      </div>
+      <button type="submit" class="btn btn-primary btn-full" style="margin-top:1.1rem;">Create Account</button>
+    </form>
+    <p class="auth-footer">Already have an account? <a href="login.html">Sign in</a></p>
+  </div>
+</section>
+<footer>© 2026 MediXon</footer>
+<script>
+document.getElementById('signupForm').addEventListener('submit',function(e){
+  if(document.getElementById('pw1').value!==document.getElementById('pw2').value){
+    e.preventDefault();alert('Passwords do not match!');
+  }
+});
+</script>
+</body>
+</html>
