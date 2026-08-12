@@ -1,10 +1,9 @@
-=======================================================
-  MediXon — Medical Equipment & Medicine Sharing
-  Version 2.0 | Bangladesh
-=======================================================
+MediXon — Medical Equipment & Medicine Sharing
+Version 2.0 | Bangladesh
+
 
 SETUP INSTRUCTIONS
-------------------
+
 1. Copy the entire "medixon" folder to your XAMPP htdocs directory
    Path: C:\xampp\htdocs\medixon\
 
@@ -21,17 +20,17 @@ SETUP INSTRUCTIONS
 
 6. Open: http://localhost/medixon/index.html
 
-=======================================================
+
 LOGIN CREDENTIALS
------------------
+
 Admin:  admin@medixon.com  /  Admin@12345
         URL: http://localhost/medixon/admin-login.html
 
 Users:  Register at: http://localhost/medixon/signup.html
 
-=======================================================
+
 PROJECT STRUCTURE
------------------
+
 HTML Pages (15):
   index.html          - Landing page
   about.html          - About MediXon
@@ -77,9 +76,9 @@ Database:
   medixon_db.sql      - 6 tables: users, equipment, requests,
                         medicines, medicine_requests, messages, feedback
 
-=======================================================
+
 FEATURES
---------
+
 Equipment Module:
   - Donate / Swap / Rent / Low Price Sale modes
   - 7 categories + photo upload
@@ -106,6 +105,6 @@ Admin Panel:
     Medicines, Medicine Requests, Messages, Feedback
   - Delete any record
 
-=======================================================
+
 Tech Stack: PHP 8.0 | MySQL 8.0 | HTML5 | CSS3 | JS
-=======================================================
+
