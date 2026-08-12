@@ -1,5 +1,4 @@
-MediXon — Medical Equipment & Medicine Sharing
-Version 2.0 | Bangladesh
+MediXon — Medical Equipment & Medicine Sharing | Bangladesh
 
 
 SETUP INSTRUCTIONS
@@ -106,5 +105,5 @@ Admin Panel:
   - Delete any record
 
 
-Tech Stack: PHP 8.0 | MySQL 8.0 | HTML5 | CSS3 | JS
+Tech Stack: PHP  | MySQL | HTML5 | CSS3 | JS
 
