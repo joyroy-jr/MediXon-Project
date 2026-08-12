@@ -1,0 +1,20 @@
+# Environment / Secret files
+.env
+.env.local
+.env.*.local
+
+# PHP / Server logs
+*.log
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE / Editor files
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.temp
