@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>My Requests — MediXon</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body style="background:var(--white2);">
+<header>
+  <a href="dashboard.html" class="logo"><span class="logo-icon">⚕️</span> MediXon</a>
+  <nav>
+    <a href="dashboard.html" class="active">Dashboard</a>
+    <div class="nav-sep"></div>
+    <a href="uploadEquipment.html">Add Equipment</a>
+    <a href="uploadMedicine.html">Add Medicine</a>
+    <div class="nav-sep"></div>
+    <a href="browse.html">Browse Equipment</a>
+    <a href="browseMedicine.html">Browse Medicine</a>
+    <div class="nav-sep"></div>
+    <a href="myRequests.html">My Requests</a>
+    <a href="ownerRequests.html">Received Requests</a>
+    <a href="chat.html">Chat</a>
+    <a href="profile.html">Profile</a>
+    <a href="LogoutServlet.php" class="nav-logout">Logout</a>
+  </nav>
+</header>
+<div class="page-wrap">
+  <h1 class="page-title">My Requests</h1>
+  <div class="dash-tabs">
+    <button class="dash-tab active" onclick="switchReqTab('equipment',this)">🩺 Equipment Requests</button>
+    <button class="dash-tab" onclick="switchReqTab('medicine',this)">💊 Medicine Requests</button>
+  </div>
+  <div id="req-equipment">
+    <div class="equipment-list" id="myEquipRequestsList"><div class="empty-state"><p>Loading...</p></div></div>
+  </div>
+  <div id="req-medicine" style="display:none;">
+    <div class="equipment-list" id="myMedRequestsList"><div class="empty-state"><p>Loading...</p></div></div>
+  </div>
+</div>
+<footer>© 2026 MediXon </footer>
+<script src="myRequestsScripts.js"></script>
+<script>
+function switchReqTab(tab,el){
+  document.querySelectorAll('.dash-tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('req-equipment').style.display=tab==='equipment'?'':'none';
+  document.getElementById('req-medicine').style.display=tab==='medicine'?'':'none';
+  if(tab==='medicine') loadMyMedicineRequests();
+}
+</script>
+</body>
+</html>
